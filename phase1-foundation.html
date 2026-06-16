@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inovalon Fast Ramp - Phase 1</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #003D79;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .banner {
+    position: relative;
+    width: 1390px;
+    height: 300px;
+    background: #003D79;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 72px;
+    box-sizing: border-box;
+  }
+
+  .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 8px;
+    background: #59DDFD;
+  }
+
+  .orb-1 {
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(78,132,196,0.22) 0%, transparent 70%);
+    top: -150px; right: 180px;
+    pointer-events: none;
+  }
+
+  .orb-2 {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(89,221,253,0.12) 0%, transparent 70%);
+    bottom: -80px; right: 420px;
+    pointer-events: none;
+  }
+
+  .dots { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(89,221,253,0.4);
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0%   { transform: translateY(0); opacity: 0.5; }
+    50%  { opacity: 0.9; }
+    100% { transform: translateY(-300px); opacity: 0; }
+  }
+
+  .dot:nth-child(1)  { width:3px;height:3px; left:6%;  top:85%; animation-duration:8s;  animation-delay:0s; }
+  .dot:nth-child(2)  { width:2px;height:2px; left:14%; top:60%; animation-duration:10s; animation-delay:1.2s; }
+  .dot:nth-child(3)  { width:4px;height:4px; left:22%; top:90%; animation-duration:7s;  animation-delay:2.5s; }
+  .dot:nth-child(4)  { width:2px;height:2px; left:30%; top:70%; animation-duration:12s; animation-delay:0.8s; }
+  .dot:nth-child(5)  { width:3px;height:3px; left:38%; top:80%; animation-duration:9s;  animation-delay:3.5s; }
+  .dot:nth-child(6)  { width:2px;height:2px; left:46%; top:50%; animation-duration:11s; animation-delay:1.8s; }
+  .dot:nth-child(7)  { width:3px;height:3px; left:54%; top:75%; animation-duration:8s;  animation-delay:4.2s; }
+  .dot:nth-child(8)  { width:2px;height:2px; left:62%; top:65%; animation-duration:10s; animation-delay:2.1s; }
+  .dot:nth-child(9)  { width:4px;height:4px; left:70%; top:88%; animation-duration:7s;  animation-delay:0.5s; }
+  .dot:nth-child(10) { width:2px;height:2px; left:78%; top:45%; animation-duration:13s; animation-delay:3.8s; }
+  .dot:nth-child(11) { width:3px;height:3px; left:86%; top:72%; animation-duration:9s;  animation-delay:5s; }
+  .dot:nth-child(12) { width:2px;height:2px; left:93%; top:58%; animation-duration:11s; animation-delay:6s; }
+  .dot:nth-child(13) { width:2px;height:2px; left:10%; top:35%; animation-duration:9s;  animation-delay:5.5s; }
+  .dot:nth-child(14) { width:3px;height:3px; left:25%; top:25%; animation-duration:8s;  animation-delay:4.8s; }
+  .dot:nth-child(15) { width:2px;height:2px; left:50%; top:30%; animation-duration:11s; animation-delay:7s; }
+  .dot:nth-child(16) { width:3px;height:3px; left:75%; top:20%; animation-duration:9s;  animation-delay:6.5s; }
+
+  .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    height: 100%;
+  }
+
+  .eyebrow {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #59DDFD;
+    line-height: 1;
+  }
+
+  .headline {
+    font-family: 'Muli', 'Source Sans Pro', sans-serif;
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .headline .inovalon {
+    font-size: 42px;
+    color: #FFFFFF;
+    font-style: normal;
+    line-height: 1.0;
+  }
+
+  .headline .phase {
+    font-size: 42px;
+    font-style: italic;
+    background: linear-gradient(90deg, #59DDFD 0%, #00E49F 33%, #6c6cff 66%, #4E84C4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.0;
+  }
+
+  .headline .fastramp {
+    font-size: 55px;
+    font-style: italic;
+    background: linear-gradient(90deg, #59DDFD 0%, #00E49F 33%, #6c6cff 66%, #4E84C4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.0;
+  }
+
+  .divider {
+    width: 40px;
+    height: 3px;
+    background: #4E84C4;
+  }
+
+  .typewriter-wrap {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    height: 22px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .arrow {
+    color: #59DDFD;
+    font-size: 11px;
+    font-family: monospace;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  .phrase-container {
+    flex: 1;
+    overflow: hidden;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .phrase {
+    position: absolute;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+    border-right: 2px solid transparent;
+  }
+
+  .phrase:nth-child(1) { animation: showphrase 30s infinite 0s   both; }
+  .phrase:nth-child(2) { animation: showphrase 30s infinite 6s   both; }
+  .phrase:nth-child(3) { animation: showphrase 30s infinite 12s  both; }
+  .phrase:nth-child(4) { animation: showphrase 30s infinite 18s  both; }
+  .phrase:nth-child(5) { animation: showphrase 30s infinite 24s  both; }
+
+  @keyframes showphrase {
+    0%    { opacity:0; width:0%;   border-right-color:transparent; }
+    2%    { opacity:1; width:0%;   border-right-color:#59DDFD; }
+    18%   { opacity:1; width:100%; border-right-color:#59DDFD; }
+    18.5% { opacity:1; width:100%; border-right-color:transparent; }
+    20%   { opacity:0; width:0%;   border-right-color:transparent; }
+    100%  { opacity:0; width:0%;   border-right-color:transparent; }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,800;1,800&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="banner">
+  <div class="accent-bar"></div>
+  <div class="orb-1"></div>
+  <div class="orb-2"></div>
+  <div class="dots">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">Sales Enablement</div>
+    <div class="headline">
+      <span class="inovalon">Inovalon</span>
+      <span class="fastramp">Fast Ramp</span>
+      <span class="phase">Phase 1: Foundation &amp; Activation</span>
+    </div>
+    <div class="divider"></div>
+    <div class="typewriter-wrap">
+      <span class="arrow">▸</span>
+      <div class="phrase-container">
+        <div class="phrase">Know Your Customer</div>
+        <div class="phrase">Know Your Process</div>
+        <div class="phrase">Build Your Pipeline</div>
+        <div class="phrase">Know Your Product</div>
+        <div class="phrase">Know Your Team</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
