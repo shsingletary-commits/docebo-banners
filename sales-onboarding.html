@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inovalon Fast Ramp</title>
+<title>Inovalon Sales Fast Ramp</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -128,8 +128,7 @@
     height: 22px;
     display: flex;
     align-items: center;
-    position: relative;
-    width: 400px;
+    width: 100%;
   }
 
   .arrow {
@@ -137,34 +136,41 @@
     font-size: 11px;
     font-family: monospace;
     flex-shrink: 0;
-    position: absolute;
-    left: 0;
+    margin-right: 8px;
+  }
+
+  .phrase-container {
+    flex: 1;
+    overflow: hidden;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    position: relative;
   }
 
   .phrase {
     position: absolute;
-    left: 18px;
+    left: 0;
     white-space: nowrap;
     overflow: hidden;
     width: 0;
     opacity: 0;
     border-right: 2px solid transparent;
-    max-width: 380px;
   }
 
-  .phrase:nth-child(2) { animation: showphrase 30s infinite 0s   both; }
-  .phrase:nth-child(3) { animation: showphrase 30s infinite 6s   both; }
-  .phrase:nth-child(4) { animation: showphrase 30s infinite 12s  both; }
-  .phrase:nth-child(5) { animation: showphrase 30s infinite 18s  both; }
-  .phrase:nth-child(6) { animation: showphrase 30s infinite 24s  both; }
+  .phrase:nth-child(1) { animation: showphrase 30s infinite 0s   both; }
+  .phrase:nth-child(2) { animation: showphrase 30s infinite 6s   both; }
+  .phrase:nth-child(3) { animation: showphrase 30s infinite 12s  both; }
+  .phrase:nth-child(4) { animation: showphrase 30s infinite 18s  both; }
+  .phrase:nth-child(5) { animation: showphrase 30s infinite 24s  both; }
 
   @keyframes showphrase {
-    0%    { opacity:0; width:0px;   border-right-color:transparent; }
-    2%    { opacity:1; width:0px;   border-right-color:#59DDFD; }
-    18%   { opacity:1; width:380px; border-right-color:#59DDFD; }
-    18.5% { opacity:1; width:380px; border-right-color:transparent; }
-    20%   { opacity:0; width:0px;   border-right-color:transparent; }
-    100%  { opacity:0; width:0px;   border-right-color:transparent; }
+    0%    { opacity:0; width:0%;    border-right-color:transparent; }
+    2%    { opacity:1; width:0%;    border-right-color:#59DDFD; }
+    18%   { opacity:1; width:100%;  border-right-color:#59DDFD; }
+    18.5% { opacity:1; width:100%;  border-right-color:transparent; }
+    20%   { opacity:0; width:0%;    border-right-color:transparent; }
+    100%  { opacity:0; width:0%;    border-right-color:transparent; }
   }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Muli:wght@800&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -188,11 +194,13 @@
     <div class="divider"></div>
     <div class="typewriter-wrap">
       <span class="arrow">▸</span>
-      <div class="phrase">Know Your Customer</div>
-      <div class="phrase">Know Your Process</div>
-      <div class="phrase">Build Your Pipeline</div>
-      <div class="phrase">Know Your Product</div>
-      <div class="phrase">Know Your Team</div>
+      <div class="phrase-container">
+        <div class="phrase">Know Your Customer</div>
+        <div class="phrase">Know Your Process</div>
+        <div class="phrase">Build Your Pipeline</div>
+        <div class="phrase">Know Your Product</div>
+        <div class="phrase">Know Your Team</div>
+      </div>
     </div>
   </div>
 </div>
